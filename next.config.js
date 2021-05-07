@@ -1,3 +1,5 @@
+const production = process.env.NODE_ENV === 'production'
+
 module.exports = {
-    assetPrefix: '/cloud-selection/',
+    assetPrefix: production ? '/cloud-selection/' : '',
 }

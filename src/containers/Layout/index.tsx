@@ -1,11 +1,11 @@
-import Container from '@material-ui/core/Container'
+import Container, { ContainerProps } from '@material-ui/core/Container'
 
-type Props = {
+type Props = ContainerProps & {
     children: React.ReactNode
 }
 
-const Layout = ({ children }: Props) => (
-    <Container>
+const Layout = ({ children, ...rest }: Props) => (
+    <Container {...rest}>
         <div>{children}</div>
     </Container>
 )

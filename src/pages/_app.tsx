@@ -13,7 +13,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
     return (
         <Styles>
-            <Layout>
+            <Layout maxWidth="sm">
                 <Component {...pageProps} />
             </Layout>
         </Styles>
