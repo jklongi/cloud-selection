@@ -13,7 +13,7 @@ jobs:
           script:
               - npm run test
         - stage: deploy
-          if: branch = master
+          if: branch = main
           script:
               - npm run build
               - npm run export
