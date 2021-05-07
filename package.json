@@ -8,7 +8,7 @@
         "build": "next build",
         "start": "next start",
         "export": "next export",
-        "eslint": "eslint",
+        "lint": "eslint",
         "test": "jest",
         "test:watch": "jest — watch",
         "test:coverage": "jest — coverage"
