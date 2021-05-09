@@ -1,4 +1,4 @@
-const ROOT = 'https://api.aiven.io/v1'
+export const ROOT = process.env.API_ROOT
 
 const request = async <T>(path: string): Promise<T | null> => {
     const url = ROOT + path

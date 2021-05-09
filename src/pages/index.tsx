@@ -12,8 +12,20 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Box from '@material-ui/core/Box'
 import Paper from '@material-ui/core/Paper'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles((theme) => ({
+    listItem: {
+        paddingTop: 0,
+    },
+    paper: {
+        padding: theme.spacing(0, 2),
+        flex: 1,
+    },
+}))
 
 const Page = () => {
+    const classes = useStyles()
     const [clouds, setClouds] = useState<Cloud[]>([])
     const [providers, setProviders] = useState<Provider[]>([])
     const [position, setPosition] = useState<Coordinates>()
@@ -61,11 +73,11 @@ const Page = () => {
                 Container={MuiList}
                 items={sortByDistance(filterByProvider(clouds, providers), useDistance ? position : undefined)}
                 renderItem={(cloud) => (
-                    <Paper variant="outlined" style={{ marginBottom: 8 }} key={cloud.cloud_name}>
-                        <ListItem>
+                    <ListItem key={cloud.cloud_name} className={classes.listItem} disableGutters>
+                        <Paper className={classes.paper}>
                             <ListItemText primary={cloud.cloud_description} secondary={cloud.cloud_name} />
-                        </ListItem>
-                    </Paper>
+                        </Paper>
+                    </ListItem>
                 )}
             />
         </Box>
