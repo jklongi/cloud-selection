@@ -42,8 +42,8 @@ describe('<Select />', () => {
         }
         const wrapper = mount(<Select items={items} onChange={onChange} label="Label" id="select" />)
         wrapper.find('[role="button"]').simulate('mousedown', { button: 0 })
-        console.log(wrapper.find(MenuItem).at(2).simulate('click'))
-        console.log(wrapper.find(MenuItem).at(0).simulate('click'))
+        wrapper.find(MenuItem).at(2).simulate('click')
+        wrapper.find(MenuItem).at(0).simulate('click')
         expect(state).toEqual(['3', '1'])
     })
 })
