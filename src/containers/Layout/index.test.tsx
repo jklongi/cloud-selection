@@ -2,6 +2,14 @@ import { mount } from 'enzyme'
 import Layout from './index'
 
 describe('<Layout />', () => {
+    it('matches snapshot', () => {
+        const wrapper = mount(
+            <Layout>
+                <p>Hello Jest!</p>
+            </Layout>,
+        )
+        expect(wrapper).toMatchSnapshot()
+    })
     it('renders children', () => {
         const wrapper = mount(
             <Layout>

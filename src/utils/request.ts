@@ -1,4 +1,4 @@
-const ROOT = process.env.NEXT_PUBLIC_API_ROOT
+const ROOT = 'https://api.aiven.io/v1'
 
 const request = async <T>(path: string): Promise<T | null> => {
     const url = ROOT + path
@@ -6,12 +6,12 @@ const request = async <T>(path: string): Promise<T | null> => {
     try {
         const response = await fetch(url)
         if (!response.ok) {
-            throw new Error(response.statusText)
+            return null
         }
         const json = await response.json()
         return json
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 
     return null

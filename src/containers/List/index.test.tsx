@@ -4,6 +4,12 @@ import List from './index'
 const items = [{ id: 1 }, { id: 2 }, { id: 3 }]
 
 describe('<List />', () => {
+    it('matches snapshot', () => {
+        const wrapper = mount(
+            <List Container={'p'} items={items} renderItem={(item) => <span key={item.id}>{item.id}</span>} />,
+        )
+        expect(wrapper).toMatchSnapshot()
+    })
     it('renders its container', () => {
         const wrapper = mount(
             <List Container={'p'} items={items} renderItem={(item) => <span key={item.id}>{item.id}</span>} />,
